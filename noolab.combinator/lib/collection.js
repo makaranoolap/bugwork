@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-=======
-
 //products = new Meteor.Collection('products');// collection products
-
-
 fullpath="/public/upload";
 
->>>>>>> ed38abdf0a0160e96c6236f02901007a9eafeb83
+
 if (Meteor.isServer) {
 	fullpath=process.env.PWD;
 	console.log('linux path:'+fullpath);
@@ -28,10 +23,10 @@ images = new FS.Collection("images", {
     stores: [new FS.Store.FileSystem("images", {path:base_path+"/public/upload"})]
 });
 
-<<<<<<< HEAD
+
 post = new Mongo.Collection('post');
-=======
+
 category = new Mongo.Collection('category');
 advertise = new Mongo.Collection('advertise');
->>>>>>> ed38abdf0a0160e96c6236f02901007a9eafeb83
+
 
