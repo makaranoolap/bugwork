@@ -1,7 +1,3 @@
-
-//products = new Meteor.Collection('products');// collection products
-
-
 if (Meteor.isServer) {
 	fullpath=process.env.PWD;
 	console.log('linux path:'+fullpath);
@@ -23,5 +19,5 @@ images = new FS.Collection("images", {
     stores: [new FS.Store.FileSystem("images", {path:base_path+"/uploads"})]
 });
 
-//attribute = new Mongo.Collection('attribute');
+post = new Mongo.Collection('post');
 
