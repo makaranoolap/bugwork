@@ -24,4 +24,6 @@ images = new FS.Collection("images", {
 });
 
 //attribute = new Mongo.Collection('attribute');
+users = Meteor.users;
+
 
