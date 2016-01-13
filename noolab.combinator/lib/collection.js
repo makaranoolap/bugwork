@@ -1,5 +1,5 @@
-
 //products = new Meteor.Collection('products');// collection products
+fullpath="/public/upload";
 
 
 if (Meteor.isServer) {
@@ -20,10 +20,15 @@ else{
 console.log( 'BASE PATH: '+base_path );
 images = new FS.Collection("images", {
 	//stores: [new FS.Store.FileSystem("images", {path:"/opt/safir/app/uploads"})]
-    stores: [new FS.Store.FileSystem("images", {path:base_path+"/uploads"})]
+    stores: [new FS.Store.FileSystem("images", {path:base_path+"/public/upload"})]
 });
 
 //attribute = new Mongo.Collection('attribute');
 users = Meteor.users;
+
+post = new Mongo.Collection('post');
+
+category = new Mongo.Collection('category');
+advertise = new Mongo.Collection('advertise');
 
 
