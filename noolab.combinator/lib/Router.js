@@ -3,3 +3,11 @@ Router.configure({
     
 });
 
+Router.route('/header', {
+    name: 'header'
+});
+Router.route('/footer', {
+    name: 'footer'
+});
+
+
