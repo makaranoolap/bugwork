@@ -30,8 +30,8 @@
 				<div class="col-sm-9">
 					<select class="form-control" id="category" required>
 						<option value="" >select category</option>
-						{{#each category}}
-							<option value="{{_id}}">{{category}}</option>
+						{{#each getCategory}}
+							<option value="{{_id}}">{{title}}</option>
 						{{/each}}
 					 </select>
 				</div>
