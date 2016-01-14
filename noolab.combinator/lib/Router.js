@@ -1,9 +1,7 @@
 Router.configure({
     layoutTemplate: 'mainLayout',
 });
-<<<<<<< HEAD
 
-=======
 Router.route('/submit',{
 	name: 'submit'
 });
@@ -54,7 +52,6 @@ Router.route('/updateAdvertise/:_id',{
         return da;
     }
 });
->>>>>>> 3a1bd032d5f11adbf5501281de6ce5cf7bde7946
 
 Router.route('/header', {
     name: 'header'
