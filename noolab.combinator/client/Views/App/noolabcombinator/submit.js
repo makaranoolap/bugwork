@@ -2,13 +2,13 @@ Template.submit.events({
 	'submit form':function(e){
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
+		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = "Foung";//Meteor.userId();
 		var title = $('#title').val();
 		var url = $('#url').val();
 		var text = $('#text').val();
 		var category =$('#category').val();
-		var date = timestamp;
+		var date = new Date();
 		var obj = {
 			title:title,
 			url:url,
@@ -25,13 +25,13 @@ Template.updatesubmit.events({
 	'click #btnUpdate': function(e){
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var date = timestamp;
+		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = "Foung";//Meteor.userId();
 		var title =$('#title').val();
 		var url =$('#url').val();
 		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();
 		var category =$('#category').val();
+		var date = new Date();
 			var obj={
 				title:title,
 				url:url,
@@ -67,6 +67,9 @@ Template.managesubmit.helpers({
 	}
 });
 Template.home.helpers({
+	'createdOn': function() {
+        return new Date();
+    },
 	getPost:function(){
 		return post.find();
 	},
