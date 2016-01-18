@@ -1,3 +1,4 @@
+Session.set("WEB-NAME","");
 Template.submit.events({
 	'submit form':function(e){
 		e.preventDefault();
@@ -30,23 +31,35 @@ Template.submit.events({
 Template.updatesubmit.events({
 	'click #btnUpdate': function(e){
 		e.preventDefault();
-		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var date = timestamp;
-		var author = "Foung";//Meteor.userId();
+
+		//var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
+		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
+		var date = new Date();
+		var author = Meteor.userId();//Meteor.userId();
 		var title =$('#title').val();
 		var url =$('#url').val();
+		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
+		var website= websites.replace('www.','');
 		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();
+		var id = this._id;
+		alert("hello"+id);
 		var category =$('#category').val();
 			var obj={
 				title:title,
 				url:url,
+				website:website,
 				text:text,
-				date:date,
 				author:author,
-				category:category
+				category:category,
+				date:date
 			}
-			post.update(this._id,obj);
+			Meteor.call("UpdateSubmit",id,obj,function(erro){
+				if(erro){console.log(erro.reason())}
+				else{
+					console.log("SUCESS UPDATE");
+					Router.go("/managesubmit");
+				}
+			});
 		}
 });
 Template.updatesubmit.helpers({
@@ -82,15 +95,33 @@ Template.home.helpers({
         return new Date();
     },
 	getPost:function(){
-		return post.find();
+		var webname = Session.get("WEB-NAME");
+		if(webname)
+			return post.find({website:webname});
+		else
+			return post.find();
 	},
 	getCategory:function(){
 		var id = this.category;
 		return category.findOne({_id:id}).title;
 	}
 });
+Template.home.events({
+	"click .web":function(e){
+		e.preventDefault();
+		var id = this._id;
+		var webname = $("#web_"+id).text();
+		Session.set("WEB-NAME",webname);
+	}
+});
 Template.submit.helpers({
 	getCategory:function(){
 		return category.find();
+	}
+});
+Template.header.events({
+	"click #home":function(){
+		Session.set("WEB-NAME",undefined);
+		Router.go("/");
 	}
 });
