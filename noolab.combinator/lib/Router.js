@@ -62,3 +62,9 @@ Router.route('/footer', {
 Router.route('/login',{
 	name: 'login'
 });
+Router.route('/profileAuthor/:_id' ,{
+    name: 'profileAuthor',
+    data:function(){
+        return post.findOne({_id: this.params._id});
+    }
+});

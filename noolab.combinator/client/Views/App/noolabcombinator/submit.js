@@ -3,7 +3,7 @@ Template.submit.events({
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var author = "Foung";//Meteor.userId();
+		var author = Meteor.userId();// var author = "Foung";
 		var title = $('#title').val();
 		var url = $('#url').val();
 		var text = $('#text').val();
@@ -67,6 +67,10 @@ Template.managesubmit.helpers({
 	}
 });
 Template.home.helpers({
+	getAuthorname:function(author){
+		var result = Meteor.users.findOne({_id:author});
+		return result.profile.firstname+" "+result.profile.lastname;
+	},
 	'createdOn': function() {
         return new Date();
     },
