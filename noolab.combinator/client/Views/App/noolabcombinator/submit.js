@@ -86,9 +86,9 @@ Template.managesubmit.helpers({
 	}
 });
 Template.home.helpers({
-	      getAuthorname:function(author){
-	      var result = Meteor.users.findOne({_id:author});
-		  return result.profile.firstname+" "+result.profile.lastname;
+	getAuthorname:function(author){
+	    var result = Meteor.users.findOne({_id:author});
+		return result.profile.firstname+" "+result.profile.lastname;
 	},
 	'createdOn': function() {
         return new Date();
