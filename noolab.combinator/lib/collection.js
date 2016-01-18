@@ -30,5 +30,6 @@ post = new Mongo.Collection('post');
 
 category = new Mongo.Collection('category');
 advertise = new Mongo.Collection('advertise');
+comments = new Mongo.Collection('comments');
 
 

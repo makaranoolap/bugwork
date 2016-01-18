@@ -19,13 +19,24 @@
 		         </li>
 		      </ul>
 		   </li>
-		   <li><a href='#'>Comments</a></li>
+		   <li><a href='/'>Comments</a></li>
 		   <li><a href='#'>Question</a></li>
+		   <li>
+				{{#if currentUser}}
+		  		<!-- <a href="" id="logout">Logout | </a> -->
+		  			{{#with getprofile}}
+		  				<a href="/profile">{{profile.firstname}} {{profile.lastname}}</a>
+		  			{{/with}}
+		  		{{else}}
+		  			<a href="/login">Login</a>
+		  		{{/if}}
+			</li>
 		   	<div class="box pull-right">
 		  <div class="container-4">
 		    <input type="search" id="search" placeholder="Search..." />
 		    <button class="icon"><i class="fa fa-search"></i></button>
 		  </div>
+
 		</div>
 		</ul>
 	

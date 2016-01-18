@@ -1,5 +1,3 @@
-
-
 Meteor.publish('users', function (){ 
   return user.find({});
 });
@@ -19,4 +17,8 @@ Meteor.publish('advertise', function (){
 Meteor.publish('images', function (){ 
   return images.find({});
 });
+Meteor.publish('comments', function (){ 
+  return comments.find({});
+});
+
 

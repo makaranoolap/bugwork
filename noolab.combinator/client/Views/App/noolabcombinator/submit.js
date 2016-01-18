@@ -3,7 +3,7 @@ Template.submit.events({
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var author = "Foung";//Meteor.userId();
+		var author = Meteor.userId();
 		var title = $('#title').val();
 		var url = $('#url').val();
 		var text = $('#text').val();
@@ -26,7 +26,7 @@ Template.updatesubmit.events({
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var author = "Foung";//Meteor.userId();
+		var author = Meteor.userId();
 		var title =$('#title').val();
 		var url =$('#url').val();
 		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();

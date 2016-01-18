@@ -62,3 +62,12 @@ Router.route('/footer', {
 Router.route('/login',{
 	name: 'login'
 });
+
+Router.route('/comments/:_id',{
+    name: 'comments',
+    data:function(){
+        var id = this.params._id;
+        var comments = post.findOne({_id: id});
+        return comments;
+    }
+});
