@@ -65,6 +65,13 @@ Router.route('/login',{
 Router.route('/profileAuthor/:_id' ,{
     name: 'profileAuthor',
     data:function(){
-        return post.findOne({_id: this.params._id});
+        return Meteor.users.findOne({_id: this.params._id});
+    }
+});
+
+Router.route('/editprofileAuthor',{
+    name: 'editprofileAuthor',
+    data: function(){
+        return Meteor.users.findOne({_id:Meteor.userId()});
     }
 });

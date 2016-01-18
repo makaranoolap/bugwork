@@ -9,11 +9,10 @@ Template.submit.events({
 		//var website = url.split(".com")[0] + ".com";
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
-		console.log("My website :"+website)
-
+		console.log("My website :"+website);
 		var text = $('#text').val();
 		var category =$('#category').val();
-		var date = timestamp;
+		var date = new Date();
 		var obj = {
 			title:title,
 			url:url,
@@ -74,9 +73,9 @@ Template.managesubmit.helpers({
 	}
 });
 Template.home.helpers({
-	getAuthorname:function(author){
-		var result = Meteor.users.findOne({_id:author});
-		return result.profile.firstname+" "+result.profile.lastname;
+	      getAuthorname:function(author){
+	      var result = Meteor.users.findOne({_id:author});
+		  return result.profile.firstname+" "+result.profile.lastname;
 	},
 	'createdOn': function() {
         return new Date();
