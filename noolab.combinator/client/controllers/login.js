@@ -41,7 +41,17 @@ Template.login.events({
 				console.log(error.reason);
 			} else {
 				alert("successfully");
+				Router.go('/');
 			}
 		});
+    }
+});
+
+Template.header.events({
+    'click #logout': function(event){
+        event.preventDefault();
+        //alert('logout!!!');
+        Meteor.logout();
+        Router.go('/login');
     }
 });

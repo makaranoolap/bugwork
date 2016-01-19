@@ -419,8 +419,16 @@ body{
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+<<<<<<< HEAD
 .hideCom{
   display: none;
 }
+=======
+/*like start*/
+  .hidden{
+    display: none;
+  }
+/*like end*/
+>>>>>>> a9f27f74035a3aeae7520f63b7afc3aead181e2a
 
 
