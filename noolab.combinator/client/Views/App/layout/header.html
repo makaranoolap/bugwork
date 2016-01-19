@@ -26,11 +26,18 @@
 			  		<div class="container-4">
 			    		<input type="search" id="search" placeholder="Search..." />
 			    		<button class="icon"><i class="fa fa-search"></i></button>
-
 			  		</div>
 			  		<div>
-			  			<a href="#" id="logout">Logout | </a>
-			  			<a href="#" id="profile">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a>
+			  			{{#if currentUser}}
+					  		<p class="pull-right">
+					  			<a href="#" id="logout">Logout | </a>
+					  			<a href="#" id="profile">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a>
+					  		</p>
+					  	{{else}}
+					  		<p class="pull-right">
+					  			<a href="/login" id="logout">Login</a>
+					  		</p>
+					  	{{/if}}
 			  		</div>
 				</div>
 			</ul>
