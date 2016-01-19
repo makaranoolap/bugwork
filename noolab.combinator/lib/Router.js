@@ -16,7 +16,7 @@ Router.route('/updatesubmit/:_id', {
 });
 
 Router.route('/',{
-	name:'home'
+	name:'homefront'
 });
 
 Router.route('/manageCategory',{
@@ -75,3 +75,6 @@ Router.route('/editprofileAuthor',{
         return Meteor.users.findOne({_id:Meteor.userId()});
     }
 });
+// Router.route('/homefront',{
+//     name'homefront'
+// });
