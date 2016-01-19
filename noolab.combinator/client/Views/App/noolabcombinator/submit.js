@@ -123,6 +123,7 @@ Template.header.events({
 	"click #home":function(e){
 		e.preventDefault();
 		Session.set("WEB-NAME",undefined);
+		alert("hello");
 		Router.go("/");
 	},
 	"click #profile":function(e){
