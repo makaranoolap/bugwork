@@ -35,11 +35,17 @@
 					<h1>Hlleo</h1>
 					{{#each getPostCom}}
 						{{#each comments}}
-							{{text}}
-						<div>{{comments.text}}<br>
-							<div class="pull-right"><a href="#" id="reply">reply</a></div>
-						</div>
-					{{/each}}
+							<div> {{text}}
+								<a href="#" class="clickHere"> Reply Here </a>
+								<div class="hideCom">
+									<input type="hidden" value="{{../_id}}" id="comId">
+									<input type="text" id="comtext" placeholder="write a comment..."><a role="menuitem" tabindex="-1" href="#" id="reply">reply</a>
+								</div>
+							</div>
+							{{#each reply}}
+								<div>{{text}}</div>
+							{{/each}}
+						{{/each}}
 					{{/each }}
 				</div>
 			</div>
