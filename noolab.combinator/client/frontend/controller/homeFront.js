@@ -1,6 +1,11 @@
 Template.homefront.helpers({
 	getAllPost:function(){
 		return post.find();
+	},
+	getFavorite:function(){
+		//var id = Session.get("getProId");
+		var id = this._id;
+		return favorite.find({proId:id}).count();
 	}
 });
 
@@ -9,11 +14,11 @@ Template.homefront.events({
 		e.preventDefault();
 		var id = this._id;	
 	},
-	'click #like':function(e){
+	'click .addlike':function(e){
 		e.preventDefault();
-
         var id=this._id;
-		var userId = Meteor.userId();
+        //Session.set("getProId",id);
+		//var userId = Meteor.userId();
 		console.log('id'+Session.get('userId'));
              if(Session.get('userId')){
                  //alert();
@@ -22,11 +27,16 @@ Template.homefront.events({
                     userId:Session.get('userId')
                  }
 
-                 Meteor.call('insertFavorite',obj);
-                  alert('Product successfully append to favorite!');
+                 Meteor.call('insertFavorite',obj,function(error){
+                 	if(error){console,log("Add like error"+error.reason())}
+                 	else{
+                 		$('#like_'+id).addClass('hidden');
+        				$('#unlike_'+id).removeClass('hidden');
+                 	}
+                 });
             }
             else{
-            	var newId=Random.id();
+            	var newId=Meteor.userId();
                 Session.setPersistent('userId',newId);
                  //var ses=Session.get('userId');
                  
@@ -38,17 +48,14 @@ Template.homefront.events({
                  Meteor.call('insertFavorite',obj);
                  //alert('Product successfully added to favorite!');
             }
-        $('#like').addClass('hidden');
-        $('#unlike').removeClass('hidden');
 	},
-	'click #unlike':function(e){
+	'click .addunlike':function(e){
 		e.preventDefault();
-		 var id=this._id;
-        alert(id);
+		var id=this._id;
         var obj=favorite.findOne({proId:id});
         //alert(obj);
         favorite.remove(obj._id);
-        $('#unlike').addClass('hidden');
-          $('#like').removeClass('hidden');
+        $('#unlike_'+id).addClass('hidden');
+        $('#like_'+id).removeClass('hidden');
 	}
 });

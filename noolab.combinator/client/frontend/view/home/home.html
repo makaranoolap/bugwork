@@ -7,12 +7,12 @@
 				  	<li>
 				  		<p id="title"><a href="{{url}}">{{title}}</a></p>
 				  		<p>
-				  			<span>Pornts</span>
+				  			<span>{{getFavorite}}Pornts</span>
 				  			<span><a href="#">User name</a></span>
 				  			<span><a href="#">Hour | </a></span>
 				  			<span><a href="#">Number Comment</a></span>
-				  			<a href="#" id="like" class="like"><span>Like</span></a>
-				  			<a href="#" id="unlike" class="hidden"><span>unlike</span></a>
+				  			<a href="#" id="like_{{_id}}" class="like addlike"><span>Like</span></a>
+				  			<a href="#" id="unlike_{{_id}}" class="hidden addunlike"><span>unlike</span></a>
 				  		</p>				  		
 				  	</li>
 					{{/each}}
