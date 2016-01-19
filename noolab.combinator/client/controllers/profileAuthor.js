@@ -8,7 +8,15 @@ Template.profileAuthor.helpers({
         }else{
             return "default_avatar.jpg";
         }
-	}
+	},
+    checkEditprofile:function(id){
+        var user = Meteor.userId();
+        //var result = Meteor.users.findOne({_id:user});
+        if(user == id)
+            return true;
+        else
+            return false;
+    }
 });
 Template.editprofileAuthor.events({
 	'click #updateAuthor': function(event){

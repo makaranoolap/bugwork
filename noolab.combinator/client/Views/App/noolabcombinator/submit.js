@@ -87,6 +87,7 @@ Template.managesubmit.helpers({
 });
 Template.home.helpers({
 	getAuthorname:function(author){
+		console.log("AUTHOR="+author);
 	    var result = Meteor.users.findOne({_id:author});
 		return result.profile.firstname+" "+result.profile.lastname;
 	},
@@ -98,7 +99,7 @@ Template.home.helpers({
 		if(webname)
 			return post.find({website:webname});
 		else
-			return post.find();
+			return post.find({});
 	},
 	getCategory:function(){
 		var id = this.category;
@@ -119,8 +120,13 @@ Template.submit.helpers({
 	}
 });
 Template.header.events({
-	"click #home":function(){
+	"click #home":function(e){
+		e.preventDefault();
 		Session.set("WEB-NAME",undefined);
 		Router.go("/");
+	},
+	"click #profile":function(e){
+		e.preventDefault();
+		Router.go("/profileAuthor/"+Meteor.userId());
 	}
 });

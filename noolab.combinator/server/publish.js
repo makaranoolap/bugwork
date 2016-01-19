@@ -1,7 +1,7 @@
 
 
 Meteor.publish('users', function (){ 
-  return user.find({});
+  return users.find({});
 });
 
 Meteor.publish('post', function (){ 
