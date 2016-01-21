@@ -16,7 +16,7 @@ Router.route('/updatesubmit/:_id', {
 });
 
 Router.route('/',{
-	name:'homefront'
+	name:'home'
 });
 
 Router.route('/manageCategory',{
