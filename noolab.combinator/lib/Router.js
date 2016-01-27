@@ -30,7 +30,7 @@ Router.route('/admin/updatesubmit/:_id', {
         return product.findOne({_id: this.params._id});
     }
 });
-Router.route('/admin/manageCategory',{
+    Router.route('/admin/manageCategory',{
 	name:'manageCategory'
 });
 

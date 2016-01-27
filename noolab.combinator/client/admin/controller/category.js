@@ -16,7 +16,7 @@ Template.addcategory.events({
 
 });
 
-Template.manageCategory.helpers({
+	Template.manageCategory.helpers({
 	manageCat: function(){
 		var result = category.find({});
 		console.log(result);
