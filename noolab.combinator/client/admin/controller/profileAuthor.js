@@ -48,6 +48,7 @@ Template.editprofileAuthor.events({
        			console.log("UPDATE SUSCESS");
        			Router.go("/profileAuthor/"+Meteor.userId());
        		}
+            Router.go("/admin/profileAuthor");
        	});
     },
     'change #upload': function(event, template) {

@@ -46,15 +46,21 @@ Router.route('/admin/updateCategory/:_id',{
         return da;
     }
 });
-Router.route('/admin/profileAuthor/:_id' ,{
-    name: 'profileAuthor',
-    data:function(){
-        return Meteor.users.findOne({_id: this.params._id});
-    }
-});
+// Router.route('/admin/profileAuthor/:_id' ,{
+//     name: 'profileAuthor',
+//     data:function(){
+//         return Meteor.users.findOne({_id: this.params._id});
+//     }
+// });
 
 Router.route('/admin/editprofileAuthor',{
     name: 'editprofileAuthor',
+    data: function(){
+        return Meteor.users.findOne({_id:Meteor.userId()});
+    }
+});
+Router.route('/admin/profileAuthor',{
+    name: 'profileAuthor',
     data: function(){
         return Meteor.users.findOne({_id:Meteor.userId()});
     }

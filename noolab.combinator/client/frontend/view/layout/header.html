@@ -15,10 +15,20 @@
 				              <a class="navbar-brand" href="/">home</a>
 				          </div>
 				          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
-				              <ul class="nav navbar-nav">
-				                  <li class="active"><a href="#">post</a></li>
-				                  <li><a href="#">Link</a></li>
-				              </ul>
+			              	<ul class="nav navbar-nav">
+			                  	<li class="active"><a href="#">post</a></li>
+			                  	<li><a href="#">Link</a></li>
+			              	</ul>
+			              	<ul class="nav navbar-nav pull-right">
+			                	{{#if currentUser}}
+			                       	<li class=""><a href="/admin/profileAuthor">
+			                    		{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
+			                    	</a></li>
+			                        <li class=""><a href="#" id="logout">Logout</a></li> 
+			                    {{else}}
+			                    	<li class=""><a href="/login">LOGIN</a></li>
+			                    {{/if}}
+	                		</ul>
 				          </div>
 				      </nav>
 				  </div>
