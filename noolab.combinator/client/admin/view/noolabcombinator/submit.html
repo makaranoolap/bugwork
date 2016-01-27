@@ -1,8 +1,22 @@
-<template name = "submit">
-	<div class = "container">
-		<h1>Submit</h1>
-		<div class="col-lg-12">
-			<form role="form" class="form-horizontal">
+<template name="submit">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-3">
+					{{> adminmenu}}
+				</div>
+				<div class="col-md-9">
+					<div class="col-lg-12">
+                        <h1 class="page-header">
+                            Add Post
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+					<form role="form" class="form-horizontal">
 
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="title">Title <span style="color:red">*</span></label>
@@ -17,7 +31,7 @@
 					<input type="text" name="url" id="url" class="form-control input-sm" placeholder="Url" required  >
 				</div>
 			</div>
-
+			
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="text">Text <span style="color:red">*</span></label>
 				<div class="col-sm-9">
@@ -43,6 +57,8 @@
 				</div>
 			</div>
 		</form>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
 </template>
