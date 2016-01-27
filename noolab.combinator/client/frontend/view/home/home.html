@@ -1,5 +1,5 @@
 <template name="homefront">
-	<div class="container">
+	<!--<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<ol>
@@ -17,6 +17,44 @@
 				  	</li>
 					{{/each}}
 				</ol>
+			</div>
+		</div>
+	</div>-->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tbody>
+                            	{{#each getAllPost}}
+	                                <tr>
+	                                    <td><a href="{{url}}">{{title}}</a></td>
+	                                    <td>
+	                                    	<a href="#" id="like_{{_id}}" class="like addlike">Like</a>
+	                                    	<a href="#" id="unlike_{{_id}}" class="hidden addunlike"><span>unlike</span></a>
+	                                    </td>
+	                                    <td>
+	                                    	<a href="#" id="web_{{_id}}" class="web">{{website}}</a>
+	                                    </td>
+	                                    <td>
+	                                    	<a href="/profileAuthor/{{author}}">{{getAuthorname author}}</a>
+	                                    </td>
+	                                    <td>
+											{{getCategory}}
+										</td>
+										<td>
+											 {{livestamp date}}
+										</td>
+	                                </tr>
+	                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
 			</div>
 		</div>
 	</div>

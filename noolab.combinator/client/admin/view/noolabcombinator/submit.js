@@ -1,4 +1,3 @@
-Session.set("WEB-NAME","");
 Template.submit.events({
 	'submit form':function(e){
 		e.preventDefault();
@@ -80,54 +79,12 @@ Template.managesubmit.helpers({
 	managesubmit:function(){
 		return post.find();
 	},
-	getCategory:function(){
-		var id = this.category;
-		return category.findOne({_id:id}).title;
-	}
-});
-Template.home.helpers({
-	getAuthorname:function(author){
-		console.log("AUTHOR="+author);
-	    var result = Meteor.users.findOne({_id:author});
-		return result.profile.firstname+" "+result.profile.lastname;
-	},
-	'createdOn': function() {
-        return new Date();
-    },
-	getPost:function(){
-		var webname = Session.get("WEB-NAME");
-		if(webname)
-			return post.find({website:webname});
-		else
-			return post.find({});
-	},
-	getCategory:function(){
-		var id = this.category;
-		return category.findOne({_id:id}).title;
-	}
-});
-Template.home.events({
-	"click .web":function(e){
-		e.preventDefault();
-		var id = this._id;
-		var webname = $("#web_"+id).text();
-		Session.set("WEB-NAME",webname);
+	getCategory:function(cat){
+		return category.findOne({_id:cat}).title;
 	}
 });
 Template.submit.helpers({
 	getCategory:function(){
 		return category.find();
-	}
-});
-Template.header.events({
-	"click #home":function(e){
-		e.preventDefault();
-		Session.set("WEB-NAME",undefined);
-		alert("hello");
-		Router.go("/");
-	},
-	"click #profile":function(e){
-		e.preventDefault();
-		Router.go("/profileAuthor/"+Meteor.userId());
 	}
 });

@@ -6,7 +6,19 @@ Template.homefront.helpers({
 		//var id = Session.get("getProId");
 		var id = this._id;
 		return favorite.find({proId:id}).count();
-	}
+	},
+     getAuthorname:function(author){
+        console.log("AUTHOR="+author);
+        var result = Meteor.users.findOne({_id:author});
+        return result.profile.firstname+" "+result.profile.lastname;
+    },
+    'createdOn': function() {
+        return new Date();
+    },
+    getCategory:function(){
+        var id = this.category;
+        return category.findOne({_id:id}).title;
+    }
 });
 
 Template.homefront.events({

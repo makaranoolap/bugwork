@@ -1,56 +1,9 @@
+//======================== FRONTENT PAGE =============================//
 Router.configure({
     layoutTemplate: 'mainLayout',
 });
-
-Router.route('/submit',{
-	name: 'submit'
-});
-Router.route('/managesubmit',{
-	name: 'managesubmit'
-});
-Router.route('/updatesubmit/:_id', {
-    name: 'updatesubmit',
-    data: function(){
-        return post.findOne({_id: this.params._id});
-    }
-});
-
 Router.route('/',{
-	name:'homefront'
-});
-
-Router.route('/manageCategory',{
-	name:'manageCategory'
-});
-
-Router.route('/addcategory',{
-	name:'addcategory'
-});
-
-Router.route('/updateCategory/:_id',{
-    name: 'updateCategory',
-    data: function(){
-        var id = this.params._id;
-        var da = category.findOne({_id: id });
-        return da;
-    }
-});
-
-Router.route('/manageAdvertise',{
-    name:'manageAdvertise'
-});
-
-Router.route('/addadvertise',{
-    name:'addadvertise'
-});
-
-Router.route('/updateAdvertise/:_id',{
-    name: 'updateAdvertise',
-    data: function(){
-        var id = this.params._id;
-        var da = advertise.findOne({_id: id });
-        return da;
-    }
+    name:'homefront'
 });
 Router.route('/header', {
     name: 'header'
@@ -60,21 +13,49 @@ Router.route('/footer', {
 });
 
 Router.route('/login',{
-	name: 'login'
+    name: 'login'
 });
-Router.route('/profileAuthor/:_id' ,{
+
+//======================== ADMIN PAGE =============================//
+
+Router.route('/admin/submit',{
+    name: 'submit'
+});
+Router.route('/admin/managesubmit',{
+    name: 'managesubmit'
+});
+Router.route('/admin/updatesubmit/:_id', {
+    name: 'updatesubmit',
+    data: function(){
+        return post.findOne({_id: this.params._id});
+    }
+});
+Router.route('/admin/manageCategory',{
+	name:'manageCategory'
+});
+
+Router.route('/admin/addcategory',{
+	name:'addcategory'
+});
+
+Router.route('/admin/updateCategory/:_id',{
+    name: 'updateCategory',
+    data: function(){
+        var id = this.params._id;
+        var da = category.findOne({_id: id });
+        return da;
+    }
+});
+Router.route('/admin/profileAuthor/:_id' ,{
     name: 'profileAuthor',
     data:function(){
         return Meteor.users.findOne({_id: this.params._id});
     }
 });
 
-Router.route('/editprofileAuthor',{
+Router.route('/admin/editprofileAuthor',{
     name: 'editprofileAuthor',
     data: function(){
         return Meteor.users.findOne({_id:Meteor.userId()});
     }
 });
-// Router.route('/homefront',{
-//     name'homefront'
-// });
