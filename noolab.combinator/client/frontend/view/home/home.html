@@ -1,42 +1,43 @@
 <template name="homefront">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover" border="0">
-                            <tbody class="list">
-                            	{{#each getAllPost}}
+	 <div class="container">
+		  <div class="row">
+			   <div class="col-md-12">
+			    <!-- /.panel-heading -->
+	                <div class="panel-body">
+	                    <div class="table-responsive">
+	                        <table class="table table-hover" border="0">
+	                            <tbody class="list">
+	                             {{#each getAllPost}}
 	                                <tr>
-	                                	<td>1.</td>
+	                                  	<td>1</td>
 	                                    <td>
 	                                    	<a href="{{url}}" class="title">{{title}}</a>
 	                                    	<a href="#" id="web_{{_id}}" class="web subtext">  ({{website}})</a>
 	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                	<td colspan="1"></td>
-	                                	<td class="subtext">
-	                                		<span>
-	                                			<a href="#" id="like_{{_id}}" class="like addlike">Like | </a>
-	                                    		<a href="#" id="unlike_{{_id}}" class="hidden addunlike">unlike | </a>
-	                                		</span>
-        									<span class="score" id="score">{{getFavorite}} points
-        									</span> by <a href="/admin/profileAuthor/:_id">{{getAuthorname author}} | </a> 
-        									<span class="age">
-        										<a href="#">{{livestamp date}}</a>
-        									</span>  | <span>
-        										<a href="#">comments</a></span>
-        								</td>
-        							</tr>
+	                                  	<td colspan="1"></td>
+	                                  	<td class="subtext">
+	                                   	<span>
+	                                    	<a href="#" id="like_{{_id}}" class="like addlike">Like | </a>
+	                                       <a href="#" id="unlike_{{_id}}" class="hidden addunlike">unlike | </a>
+	                                   	</span>
+						                <span class="score" id="score">
+						                	{{getFavorite}} points
+						                 	</span> by <a href="/admin/profileAuthor/{{_id}}">{{getAuthorname author}} | </a> 
+						                 	<span class="age">
+						                 	 <a href="#">{{livestamp date}}</a>
+						                 	</span>  | <span>
+						                  <a href="/admin/comments/{{_id}}">comments</a></span>
+						                </td>
+						            </tr>
 	                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.table-responsive -->
-                </div>
-                <!-- /.panel-body -->
+	                            </tbody>
+	                    </table>
+	                </div>
+	                <!-- /.table-responsive -->
+	            </div>
+	           	<!-- /.panel-body -->
 			</div>
 		</div>
 	</div>
