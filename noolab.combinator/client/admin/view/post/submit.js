@@ -30,9 +30,6 @@ Template.submit.events({
 Template.updatesubmit.events({
 	'click #btnUpdate': function(e){
 		e.preventDefault();
-
-		//var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var date = new Date();
 		var author = Meteor.userId();//Meteor.userId();
 		var title =$('#title').val();
@@ -41,7 +38,7 @@ Template.updatesubmit.events({
 		var website= websites.replace('www.','');
 		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();
 		var id = this._id;
-		alert("hello"+id);
+		//alert("hello"+id);
 		var category =$('#category').val();
 			var obj={
 				title:title,
@@ -64,7 +61,6 @@ Template.updatesubmit.events({
 Template.updatesubmit.helpers({
 	getCat:function(id){
 		return category.findOne({_id:id}).title;
-		Router.go("/admin/managesubmit");
 	},
 	getCategory:function(){
 		return category.find();

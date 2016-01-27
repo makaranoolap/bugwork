@@ -1,6 +1,6 @@
 var IR_BeforeHooks = {
     checkLogin:function(pause){
-      if (!Roles.userIsInRole(Meteor.userId(), ['Admin','member'],'mygroup')) {
+      if (!Roles.userIsInRole(Meteor.userId(), ['Admin','member'])) {
           this.render('login');
           pause();
       }else{
@@ -17,7 +17,10 @@ Router.onBeforeAction(IR_BeforeHooks.checkLogin, {
         'comments',
         'editprofileAuthor',
         'submit',
-        'dashboard'  
+        'dashboard',
+        'adduser',
+        'edituser',
+        'manageuser'  
     ]
   //except: ['admin','categories','login','register','projectlist','search','project','tage'] 
 });

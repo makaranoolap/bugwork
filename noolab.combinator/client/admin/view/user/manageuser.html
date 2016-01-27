@@ -21,7 +21,7 @@
                                     {{#each getManageuser}}
                                          <tr class="odd gradeX">
                                             <td class="text-center">#</td>
-                                            <td class="text-center">{{profile.firstname}} {{profile.lastname}}</td>
+                                            <td class="text-center">{{profile.username}}</td>
                                             {{#each emails}}
                                                 <td>
                                                     {{address}}
@@ -30,8 +30,8 @@
                                             <td class="text-center">{{perm roles}}</td>
                                             <td class="text-center">
                                                 <a href="#" class="btn btn-primary btn-xs">View</a>
-                                                <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                                <a href="/admin/edituser/{{_id}}" id="edituser" class="btn btn-primary btn-xs">Edit</a>
+                                                <a href="#" id="remove" class="btn btn-danger btn-xs {{checkAdmin roles}}">Delete</a>
+                                                <a href="/admin/edituser/{{_id}}" id="edituser" class="{{checkAdmin roles}} btn btn-primary btn-xs">Edit</a>
                                             </td>
                                         </tr>
                                     {{/each}}

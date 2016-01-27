@@ -2,16 +2,13 @@ Template.login.events({
 	'submit #signupform': function(event){
     	event.preventDefault();
     	var email=$("#email").val();
-    	var firstname =$('#firstname').val();
-		var lastname =$('#lastname').val();
+    	var username =$('#username').val();
 		var password = $('#password').val();
 		var rerole = 'member';
 		var msg = '';
-		if( firstname == '' || lastname == ''  || email=='' || password ==''){
-			if( firstname == '' )
-				msg += 'Firt Name is required.';
-			if( lastname == '' )
-				msg += 'Last Name is required.';
+		if( username == '' || email=='' || password ==''){
+			if( username == '' )
+				msg += 'username is required.';
 			if( email == '' )
 				msg += 'email is required.';
 			if( password == '' )
@@ -21,7 +18,7 @@ Template.login.events({
 		}
 		else{
 			//alert(firstname+lastname+email+password);
-			Meteor.call('regUser',email, firstname, lastname, password, rerole, function(err){
+			Meteor.call('regUser',email, username, password, rerole, function(err){
 				if(err){
 					console.log(err.reason);
 				}else{

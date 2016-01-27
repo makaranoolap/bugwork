@@ -1,13 +1,10 @@
-
 Meteor.methods({
-	    regUser:function(email,firstname, lastname, password, rerole){
-	   	targetUserId = Accounts.createUser({
-	    email: email,
-	    password: password,
-	    profile:{firstname:firstname,lastname:lastname}
-	   });
-	   console.log(targetUserId);
-	   //Roles.setUserRoles(id, roleid, 'noolab')
+    regUser:function(email,username,password,rerole){
+   		targetUserId = Accounts.createUser({
+	    	email: email,
+	    	password: password,
+	    	profile:{username:username}
+	   	});
 	   Roles.setUserRoles(targetUserId, [rerole])
-	  }
+	}
 });

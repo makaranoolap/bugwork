@@ -8,19 +8,23 @@ Template.addcategory.events({
 			if(err){
 				console.log(err);
 			}else{
-				alert("success");
-				Router.go("/manageCategory");
+				Router.go("/admin/manageCategory");
 			}
 		});
 	}
 
 });
-
-	Template.manageCategory.helpers({
+Template.addcategory.helpers({
+	getCategories:function(){
+		return category.find();
+	}
+});
+Template.manageCategory.helpers({
 	manageCat: function(){
-		var result = category.find({});
-		console.log(result);
-		return result;
+		return category.find().map(function(document, index) {
+            document.index = index + 1;
+            return document;
+        });
 	},
 	catName: function(cat){
 		if(cat=='0')
@@ -29,27 +33,24 @@ Template.addcategory.events({
 		return result.title;
 	}
 });
-
 Template.manageCategory.events({
 	'click #remove': function(e){
 		e.preventDefault();
 		var id = this._id;
-		Meteor.call('deleteCategory', id);
-		
+		Meteor.call('deleteCategory', id,function(error){
+			if(error){console.log("deleteCategory error"+error.reason())}
+		});
 	}
 });
 
 Template.updateCategory.helpers({
-	getCat: function(cat){
-		var cats = category.findOne({_id:cat});
-		Session.set('data',cats.title);
-		return cats.title;
+	checkCurrent:function(parent){
+		if(parent == "0")
+			return "No Parent";
+		else
+			return category.findOne({_id:parent}).title;
 	},
-	checkParent:function(catId,realParent){
-		console.log(catId+"=="+realParent.parent);
-		return catId==realParent.parent;
-	},
-	getCatall: function(){
+	getCatname: function(){
 		return category.find({});
 	}
 });	
@@ -60,15 +61,16 @@ Template.updateCategory.events({
 		var id = $("#idRecord").val();
 		var title = $('#title').val();
 		var parent = $('#parent').val();
-
 		var attr={
 			title:title,
 			parent:parent
-		
 		}
-
-		Meteor.call('updateCat',id, attr);
-		Router.go('/manageCategory');   
+		Meteor.call('updateCat',id, attr,function(error){
+			if(error){console.log("updateCat error"+error.reason())}
+			else{
+				Router.go('/admin/manageCategory');
+			}
+		});  
 	}
 });
 

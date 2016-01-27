@@ -21,12 +21,14 @@
                       </ul>
                       <ul class="nav navbar-nav pull-right">
                         {{#if currentUser}}
-                        <li class=""><a href="/admin/profileAuthor">
-                            {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
-                        </a></li>
-                        <li class=""><a href="#" id="logout">Logout</a></li> 
+	                        <li>
+	                        	<a href="#" id="pro">
+	                            {{currentUser.profile.username}}
+	                        	</a>
+	                        </li>
+	                        <li><a href="#" id="logout">| Logout</a></li>
                         {{else}}
-                        <li class=""><a href="/login">LOGIN</a></li>
+                        	<li class=""><a href="/login">LOGIN</a></li>
                         {{/if}}
                     </ul>
                 </div>

@@ -1,3 +1,10 @@
+Template.header.events({
+    "click #pro":function(e){
+        e.preventDefault();
+        var user = Meteor.userId();
+        Router.go("/admin/profileAuthor/"+user);
+    }
+});
 Template.homefront.helpers({
     getAllPost: function() {
         return post.find().map(function(document, index) {
@@ -13,7 +20,7 @@ Template.homefront.helpers({
      getAuthorname:function(author){
         console.log("AUTHOR="+author);
         var result = Meteor.users.findOne({_id:author});
-        return result.profile.firstname+" "+result.profile.lastname;
+        return result.profile.username;
     },
     'createdOn': function() {
         return new Date();
@@ -32,8 +39,6 @@ Template.homefront.events({
 	'click .addlike':function(e){
 		e.preventDefault();
         var id=this._id;
-        //Session.set("getProId",id);
-		//var userId = Meteor.userId();
 		console.log('id'+Session.get('userId'));
              if(Session.get('userId')){
                  //alert();
@@ -142,3 +147,4 @@ Template.homeWeb.events({
         $('#like_'+id).removeClass('hidden');
     }
 });
+

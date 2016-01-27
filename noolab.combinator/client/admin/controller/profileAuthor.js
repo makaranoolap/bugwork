@@ -10,8 +10,9 @@ Template.profileAuthor.helpers({
         }
 	},
     checkEditprofile:function(id){
+        console.log("AUTHOR="+id);
         var user = Meteor.userId();
-        //var result = Meteor.users.findOne({_id:user});
+        console.log("USER="+user);
         if(user == id)
             return true;
         else
@@ -24,7 +25,7 @@ Template.profileAuthor.helpers({
     getAuthorname:function(author){
         console.log("AUTHOR="+author);
         var result = Meteor.users.findOne({_id:author});
-        return result.profile.firstname+" "+result.profile.lastname;
+        return result.profile.username;
     },
     getCategory:function(){
         var id = this.category;
@@ -34,15 +35,14 @@ Template.profileAuthor.helpers({
 Template.editprofileAuthor.events({
 	'click #updateAuthor': function(event){
         event.preventDefault();
-        var firstname = $('#firstname').val();
-        var lastname = $('#lastname').val();
+        var username = $('#username').val();
         var about = $('#about').val();
         var hobbies = $('#hobbies').val();
         var skills = $('#skills').val();
         var avatar = Session.get('ADDIMAGEID');
         var id = Meteor.userId();
         alert(firstname+lastname+about+hobbies+skills);
-       	Meteor.call("editprofileAuthor",id,firstname,lastname,about,hobbies,skills,avatar,function(error){
+       	Meteor.call("editprofileAuthor",id,username,about,hobbies,skills,avatar,function(error){
        		if(error){console.log(error.reason())}
        		else{
        			console.log("UPDATE SUSCESS");

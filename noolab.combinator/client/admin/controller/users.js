@@ -1,16 +1,17 @@
 Template.adduser.events({
     'click #btnuser': function(e,tlp){
         e.preventDefault();
-        alert("username" +username);
         var username = tlp.$('#username').val();
-        var fname = tlp.$('#firstname').val();
-        var lname = tlp.$('#lastname').val();
         var email = tlp.$('#email').val();
         var password = tlp.$('#password').val();
         var mySelect = tlp.$('#mySelect').val();
         // alert(mySelect);
-        Meteor.call('addUser',username,fname,lname,email,password,mySelect);
-        Router.go('/manageuser');
+        Meteor.call('addUser',email,username,password,mySelect,function(error){
+            if(error){console.log("Error add user"+error.reason())}
+            else{
+                Router.go('/admin/manageuser');
+            }
+        });
     }
 });
 Template.adduser.helpers({
@@ -34,7 +35,14 @@ Template.manageuser.helpers({
         return Meteor.roles.find();
     },
     perm:function(roles){
-        return roles.mygroup[0];
+        return roles[0];
+    },
+    checkAdmin:function(roles){
+        var position = roles[0];
+        if(position == "Admin")
+            return "disabled";
+        else
+            return false;
     }
 });
 Template.manageuser.events({
@@ -42,8 +50,12 @@ Template.manageuser.events({
         e.preventDefault();
         var id = this._id;
         if (confirm("Are you sure you want to delete this?")) {
-            Meteor.call("deleteUser",id);
-            Router.go('/manageuser');
+            Meteor.call("deleteUser",id,function(error){
+                if(error){console.log("delete user error"+error.reason())}
+                else{
+                    Router.go('/admin/manageuser');
+                }
+            });
         }
     }
 });
@@ -53,25 +65,19 @@ Template.edituser.events({
         e.preventDefault();
         var id = this._id;
         var username = $('#username').val();
-        var fname = $('[name=firstname]').val();
-        var lname = $('[name=lastname]').val();
         var email = $('#email').val();
-        // var password = $('#password').val();
         var mySelect = $('#mySelect').val();
-        alert("it Working"+id+" "+username+" "+fname+" "+lname+" "+email);
-        Meteor.call('edituser',id,username,fname,lname,email,function(err){
-            if (err) {
-                alert(err);
+        Meteor.call('edituser',id,email,username,mySelect,function(err){
+            if (err) {console.log("edituser error"+err.reason())}
+            else{
+                 Router.go('/admin/manageuser');
             }
         });
-        Meteor.call('updateroles',id,mySelect);
-        Router.go('/manageuser');
     }
 });
 Template.edituser.helpers({
     getRoles:function(){
         var result = Meteor.roles.find({});
-        //console.log("My Role :"+JSON.stringify(result));
         return result;
     },
     position: function(posit){

@@ -11,12 +11,26 @@ Router.route('/header', {
 Router.route('/footer', {
     name: 'footer'
 });
-
 Router.route('/login',{
     name: 'login'
 });
+Router.route('/register',{
+    name: 'register'
+});
 Router.route('/usersubmit',{
     name: 'userSubmit'
+});
+Router.route('/admin/editprofileAuthor',{
+    name: 'editprofileAuthor',
+    data: function(){
+        return users.findOne({_id:Meteor.userId()});
+    }
+});
+Router.route('/admin/profileAuthor/:_id',{
+    name: 'profileAuthor',
+    data: function(){
+        return users.findOne({_id:Meteor.userId()});
+    }
 });
 
 //======================== ADMIN PAGE =============================//
@@ -32,7 +46,7 @@ Router.route('/admin/managesubmit',{
 Router.route('/admin/updatesubmit/:_id', {
     name: 'updatesubmit',
     data: function(){
-        return product.findOne({_id: this.params._id});
+        return post.findOne({_id: this.params._id});
     }
 });
     Router.route('/admin/manageCategory',{
@@ -49,18 +63,6 @@ Router.route('/admin/updateCategory/:_id',{
         var id = this.params._id;
         var da = category.findOne({_id: id });
         return da;
-    }
-});
-Router.route('/admin/editprofileAuthor',{
-    name: 'editprofileAuthor',
-    data: function(){
-        return users.findOne({_id:Meteor.userId()});
-    }
-});
-Router.route('/admin/profileAuthor/:_id',{
-    name: 'profileAuthor',
-    data: function(){
-        return users.findOne({_id:Meteor.userId()});
     }
 });
 Router.route('/homeWeb/:website',{

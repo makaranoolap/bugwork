@@ -1,9 +1,8 @@
 Meteor.methods({
-	editprofileAuthor:function(id,firstname,lastname,about,hobbies,skills,avatar){
+	editprofileAuthor:function(id,username,about,hobbies,skills,avatar){
 		var attr = {
 			profile:{
-				firstname:firstname,
-				lastname:lastname,
+				username:username,
 				about:about,
 				hobbies:hobbies,
 				skills:skills,
