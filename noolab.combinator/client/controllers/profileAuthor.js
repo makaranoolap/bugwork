@@ -16,6 +16,19 @@ Template.profileAuthor.helpers({
             return true;
         else
             return false;
+    },
+    currentPost:function(){
+        var user = this._id;
+        return post.find({author:user});
+    },
+    getAuthorname:function(author){
+        console.log("AUTHOR="+author);
+        var result = Meteor.users.findOne({_id:author});
+        return result.profile.firstname+" "+result.profile.lastname;
+    },
+    getCategory:function(){
+        var id = this.category;
+        return category.findOne({_id:id}).title;
     }
 });
 Template.editprofileAuthor.events({

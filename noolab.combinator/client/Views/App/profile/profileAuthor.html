@@ -52,6 +52,30 @@
 			            	<!--/col-->
 		          		</div>
 		          		<!--/row-->
+		          		<div style="margin-top:50px">
+			          		<table class="table">
+			          			<thead>
+				          			<tr>
+					          			<th>Title</th>
+					          			<th>Text</th>
+					          			<th>Date</th>
+					          			<th>Author</th>
+					          			<th>Categories</th>
+					          		</tr>
+					          	</thead>
+				          		{{#each currentPost}}
+				          			<tbody>
+					          			<tr>
+					          				<td><a href="{{url}}">{{title}}</a></td>
+					          				<td>{{text}}</td>
+					          				<td>{{livestamp date}}</td>
+					          				<td><a href="/profileAuthor/{{author}}">{{getAuthorname author}}</a></td>
+					          				<td>{{getCategory}}</td>
+					          			</tr>
+					          		</tbody>
+				          		{{/each}}
+			          		</table>
+			          	</div>
 		        	</div>
 		        <!--/panel-body-->
 		      	</div>
