@@ -1,18 +1,18 @@
-<template name="homefront">
-	 <div class="container">
-		  <div class="row">
-			   <div class="col-md-12">
-			    <!-- /.panel-heading -->
-	                <div class="panel-body">
-	                    <div class="table-responsive">
-	                        <table class="table table-hover" border="0">
-	                            <tbody class="list">
-	                             {{#each getAllPost}}
+<template name="homeWeb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" border="0">
+                            <tbody class="list">
+                            	{{#each getAllWEbsite}}
 	                                <tr>
-	                                  	<td>{{index}}</td>
+	                                	<td><ol><li></li></ol></td>
 	                                    <td>
 	                                    	<a href="{{url}}" class="title">{{title}}</a>
-	                                    	<a href="/homeWeb/{{website}}" class="subtext" id="">({{website}})</a>
+	                                    	<a href="#" class="web subtext" id="web_{{_id}}">({{website}})</a>
 	                                    </td>
 	                                </tr>
 	                                <tr>
@@ -30,13 +30,14 @@
         										<a href="#">comments</a></span>
         								</td>
         							</tr>
+        							
 	                            {{/each}}
-	                            </tbody>
-	                    </table>
-	                </div>
-	                <!-- /.table-responsive -->
-	            </div>
-	           	<!-- /.panel-body -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
 			</div>
 		</div>
 	</div>

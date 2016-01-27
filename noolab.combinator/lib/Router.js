@@ -60,6 +60,14 @@ Router.route('/admin/profileAuthor/:_id',{
         return users.findOne({_id:Meteor.userId()});
     }
 });
+Router.route('/homeWeb/:website',{
+    name:'homeWeb',
+    data: function(){
+        var result = post.findOne({website:this.params.website});
+        console.log(this.params.website);
+        return result;
+    }
+});
 Router.route('/admin/comments/:_id', {
     name: 'comments',
     data: function(){
