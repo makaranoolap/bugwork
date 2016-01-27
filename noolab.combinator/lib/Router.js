@@ -51,13 +51,13 @@ Router.route('/admin/updateCategory/:_id',{
 Router.route('/admin/editprofileAuthor',{
     name: 'editprofileAuthor',
     data: function(){
-        return Meteor.users.findOne({_id:Meteor.userId()});
+        return users.findOne({_id:Meteor.userId()});
     }
 });
 Router.route('/admin/profileAuthor/:_id',{
     name: 'profileAuthor',
     data: function(){
-        return Meteor.users.findOne({_id:Meteor.userId()});
+        return users.findOne({_id:Meteor.userId()});
     }
 });
 Router.route('/admin/comments/:_id', {
