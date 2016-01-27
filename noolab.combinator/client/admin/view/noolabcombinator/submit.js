@@ -5,6 +5,7 @@ Template.submit.events({
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = Meteor.userId();
 		var title = $('#title').val();
+		alert(title);
 		var url = $('#url').val();
 		//var website = url.split(".com")[0] + ".com";
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
@@ -23,7 +24,7 @@ Template.submit.events({
 			date:date
 		}
 		Meteor.call('insertSubmit',obj);
-		Router.go("/managesubmit");
+		Router.go("/admin/managesubmit");
 	}
 });
 Template.updatesubmit.events({
@@ -55,7 +56,7 @@ Template.updatesubmit.events({
 				if(erro){console.log(erro.reason())}
 				else{
 					console.log("SUCESS UPDATE");
-					Router.go("/managesubmit");
+					Router.go("/admin/managesubmit");
 				}
 			});
 		}
@@ -63,7 +64,7 @@ Template.updatesubmit.events({
 Template.updatesubmit.helpers({
 	getCat:function(id){
 		return category.findOne({_id:id}).title;
-		Router.go("/managesubmit");
+		Router.go("/admin/managesubmit");
 	},
 	getCategory:function(){
 		return category.find();
@@ -72,7 +73,7 @@ Template.updatesubmit.helpers({
 Template.managesubmit.events({
 'click #remove':function(){
 		var id = this._id;
-		return post.remove({_id:id});
+		return product.remove({_id:id});
 	}
 });
 Template.managesubmit.helpers({

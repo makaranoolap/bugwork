@@ -27,7 +27,7 @@ Router.route('/admin/managesubmit',{
 Router.route('/admin/updatesubmit/:_id', {
     name: 'updatesubmit',
     data: function(){
-        return post.findOne({_id: this.params._id});
+        return product.findOne({_id: this.params._id});
     }
 });
 Router.route('/admin/manageCategory',{
