@@ -1,7 +1,10 @@
 Template.homefront.helpers({
-	getAllPost:function(){
-		return post.find();
-	},
+    getAllPost: function() {
+        return post.find().map(function(document, index) {
+            document.index = index + 1;
+            return document;
+        });
+    },
 	getFavorite:function(){
 		//var id = Session.get("getProId");
 		var id = this._id;
