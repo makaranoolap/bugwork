@@ -2,8 +2,8 @@ Meteor.publish('users', function (){
   return users.find({});
 });
 
-Meteor.publish('post', function (){ 
-  return post.find({})
+Meteor.publish('product', function (){ 
+  return product.find({})
 });
 
 Meteor.publish('category', function (){ 

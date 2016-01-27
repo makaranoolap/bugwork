@@ -26,11 +26,11 @@ images = new FS.Collection("images", {
 //attribute = new Mongo.Collection('attribute');
 users = Meteor.users;
 
-post = new Mongo.Collection('post');
+// post = new Mongo.Collection('post');
 
 category = new Mongo.Collection('category');
 advertise = new Mongo.Collection('advertise');
 comments = new Mongo.Collection('comments');
 favorite = new Mongo.Collection('favorite');
-
+product = new Mongo.Collection('product');
 

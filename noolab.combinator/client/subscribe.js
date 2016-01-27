@@ -1,6 +1,6 @@
 //Meteor.subscribe("images");
 Meteor.subscribe('users');
-Meteor.subscribe("post");
+Meteor.subscribe("product");
 Meteor.subscribe("images");
 Meteor.subscribe("category");
 Meteor.subscribe("advertise");
