@@ -36,3 +36,6 @@ Meteor.publish('favorite', function (){
 Meteor.publish('post', function (){ 
   return post.find({});
 });
+Meteor.publish(null, function (){ 
+  return Meteor.roles.find({});
+});
