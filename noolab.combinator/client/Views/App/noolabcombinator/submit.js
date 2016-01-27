@@ -6,6 +6,7 @@ Template.submit.events({
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = Meteor.userId();
 		var title = $('#title').val();
+		alert(title);
 		var url = $('#url').val();
 		//var website = url.split(".com")[0] + ".com";
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
@@ -73,12 +74,12 @@ Template.updatesubmit.helpers({
 Template.managesubmit.events({
 'click #remove':function(){
 		var id = this._id;
-		return post.remove({_id:id});
+		return product.remove({_id:id});
 	}
 });
 Template.managesubmit.helpers({
 	managesubmit:function(){
-		return post.find();
+		return product.find();
 	},
 	getCategory:function(){
 		var id = this.category;
@@ -97,9 +98,9 @@ Template.home.helpers({
 	getPost:function(){
 		var webname = Session.get("WEB-NAME");
 		if(webname)
-			return post.find({website:webname});
+			return product.find({website:webname});
 		else
-			return post.find({});
+			return product.find({});
 	},
 	getCategory:function(){
 		var id = this.category;

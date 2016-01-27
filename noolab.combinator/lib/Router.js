@@ -11,13 +11,17 @@ Router.route('/managesubmit',{
 Router.route('/updatesubmit/:_id', {
     name: 'updatesubmit',
     data: function(){
-        return post.findOne({_id: this.params._id});
+        return product.findOne({_id: this.params._id});
     }
 });
 
-Router.route('/',{
-	name:'admin'
-});
+// Router.route('/',{
+// <<<<<<< HEAD
+// 	name:'admin'
+// =======
+// 	name:'home'
+// >>>>>>> 1b40ea6ad53bb4b6a19778d88e614a566d0d6aec
+// });
 
 Router.route('/manageCategory',{
 	name:'manageCategory'
