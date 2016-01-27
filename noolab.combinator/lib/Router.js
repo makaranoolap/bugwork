@@ -17,7 +17,9 @@ Router.route('/login',{
 });
 
 //======================== ADMIN PAGE =============================//
-
+Router.route('/admin',{
+    name: 'dashboard'
+});
 Router.route('/admin/submit',{
     name: 'submit'
 });
@@ -46,20 +48,13 @@ Router.route('/admin/updateCategory/:_id',{
         return da;
     }
 });
-// Router.route('/admin/profileAuthor/:_id' ,{
-//     name: 'profileAuthor',
-//     data:function(){
-//         return Meteor.users.findOne({_id: this.params._id});
-//     }
-// });
-
 Router.route('/admin/editprofileAuthor',{
     name: 'editprofileAuthor',
     data: function(){
         return Meteor.users.findOne({_id:Meteor.userId()});
     }
 });
-Router.route('/admin/profileAuthor',{
+Router.route('/admin/profileAuthor/:_id',{
     name: 'profileAuthor',
     data: function(){
         return Meteor.users.findOne({_id:Meteor.userId()});
