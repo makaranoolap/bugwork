@@ -12,9 +12,8 @@
 					<table class="table table-responsive">
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>No</th>
 								<th>Title</th>
-								<th>Url</th>
 								<th>Text</th>
 								<th>Category</th>
 								<th colspan="3">Action</th>
@@ -23,9 +22,8 @@
 						<tbody>
 							{{#each managesubmit}}
 								<tr>
-									<td>#</td>
+									<td>{{index}}</td>
 									<td>{{title}}</td>
-									<td>{{url}}</td>
 									<td>{{text}}</td>
 									<td>{{getCategory category}}</td>
 									<td colspan="3">

@@ -78,7 +78,17 @@ Template.managesubmit.events({
 });
 Template.managesubmit.helpers({
 	managesubmit:function(){
-		return post.find();
+		if (Roles.userIsInRole(Meteor.userId(), ['member'],'mygroup')) {
+         	return post.find({author:Meteor.userId()}).map(function(document, index) {
+	            document.index = index + 1;
+	            return document;
+	        });
+	    }else{
+	        return post.find().map(function(document, index) {
+	            document.index = index + 1;
+	            return document;
+	        });
+	    }
 	},
 	getCategory:function(cat){
 		return category.findOne({_id:cat}).title;
@@ -88,14 +98,4 @@ Template.submit.helpers({
 	getCategory:function(){
 		return category.find();
 	}
-});
-
-Template.userSubmit.helpers({
-	getUserPost:function(id){
-		return post.findOne({author:id});
-	},
-	getCategory:function(cat){
-		return category.findOne({_id:cat}).title;
-	}
-	
 });
