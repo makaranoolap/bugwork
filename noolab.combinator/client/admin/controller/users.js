@@ -32,6 +32,9 @@ Template.manageuser.helpers({
     },
     userRole:function(){
         return Meteor.roles.find();
+    },
+    perm:function(roles){
+        return roles.mygroup[0];
     }
 });
 Template.manageuser.events({

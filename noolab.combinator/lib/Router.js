@@ -78,15 +78,15 @@ Router.route('/admin/comments/:_id', {
     }
 });
 
-Router.route('adduser',{
+Router.route('/admin/adduser',{
     name: 'adduser'
 });
-Router.route('/manageuser',{
+Router.route('/admin/manageuser',{
     name: 'manageuser'
 });
-Router.route('edituser/:_id',{
+Router.route('/admin/edituser/:_id',{
     name: 'edituser',
     data: function(){
-        return Meteor.users.findOne({_id: this.params._id});
+        return users.findOne({_id: this.params._id});
     }
 });

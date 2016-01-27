@@ -1,7 +1,7 @@
 <template name="adminmenu">
 	<div class="col-md-12">
 		<ul id="sidebar" class="nav nav-pills nav-stacked" style="max-width: 200px;">
-			{{#if isInRole 'Admin' 'mygroup'}}
+			{{#if isInRole 'Admin'}}
 			    <li class="active">
 			    	<a href="/admin"><span class="glyphicon glyphicon-off"></span> Overview</a>
 			    </li>
@@ -21,7 +21,7 @@
 			     	<a href="/admin/adduser"><span class="glyphicon glyphicon-list"></span>  Add User</a>
 			     </li>
 			     <li>
-			     	<a href="/admin/listuser"><span class="glyphicon glyphicon-list"></span>  List User</a>
+			     	<a href="/admin/manageuser"><span class="glyphicon glyphicon-list"></span>  List User</a>
 			     </li>
 			    <li>
 			    	<a href="#"><span class="glyphicon glyphicon-signal"></span>  Setting</a>
