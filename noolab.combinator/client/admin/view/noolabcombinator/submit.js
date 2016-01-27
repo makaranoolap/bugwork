@@ -89,3 +89,13 @@ Template.submit.helpers({
 		return category.find();
 	}
 });
+
+Template.userSubmit.helpers({
+	getUserPost:function(id){
+		return post.findOne({author:id});
+	},
+	getCategory:function(cat){
+		return category.findOne({_id:cat}).title;
+	}
+	
+});

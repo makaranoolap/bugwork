@@ -15,6 +15,9 @@ Router.route('/footer', {
 Router.route('/login',{
     name: 'login'
 });
+Router.route('/usersubmit',{
+    name: 'userSubmit'
+});
 
 //======================== ADMIN PAGE =============================//
 Router.route('/admin',{

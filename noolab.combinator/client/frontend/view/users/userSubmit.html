@@ -1,0 +1,43 @@
+<template name="userSubmit">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-3">
+					{{> adminmenu}}
+				</div>
+				<div class="col-md-9">
+                    <p class="breadcrumb">
+                        All User Post
+                    </p>
+					<table class="table table-responsive">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Title</th>
+								<th>Url</th>
+								<th>Text</th>
+								<th>Category</th>
+								<th colspan="3">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#with getUserPost _id}}
+								<tr>
+									<td>#</td>
+									<td>{{title}}</td>
+									<td>{{url}}</td>
+									<td>{{text}}</td>
+									<td>{{getCategory category}}</td>
+									<td colspan="3">
+										<a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a>
+										<a class="glyphicon glyphicon-edit center-block" href="updatesubmit/{{_id}}"></a>
+									</td>
+								</tr>
+							{{/with}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
