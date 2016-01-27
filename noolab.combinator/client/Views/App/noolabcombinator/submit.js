@@ -79,7 +79,7 @@ Template.managesubmit.events({
 });
 Template.managesubmit.helpers({
 	managesubmit:function(){
-		return product.find();
+		return post.find();
 	},
 	getCategory:function(){
 		var id = this.category;
