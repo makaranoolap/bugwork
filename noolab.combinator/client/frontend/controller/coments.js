@@ -5,13 +5,18 @@ Template.comments.events({
 		var date = new Date();
 		var author = Meteor.userId();
 		var text = tlp.$('#comment').val();
-		var parent = 0;
 		var commentId = Random.id();
 		alert('Hello: '+id);
-
+		Session.set('GETEID',id);
+		//console.log("text helll : "+Session.get("GETEID"));
 		var object={
 			comments:
-				{commentId,authorId:author,parent,text:text,date}
+				{
+					commentId:commentId,
+					authorId:author,
+					text:text,
+					date:date
+				}
 		}
 		Meteor.call('updatePost',id,object);
 		//post.update(this._id,object);
@@ -24,8 +29,8 @@ Template.comments.events({
 });
 Template.comments.helpers({
 	getPostCom:function(){
-		var id = this._id;
-		var result= post.find({_id:id});
+		var replyid = this._id;
+		var result= post.find({_id:replyid});
 		return result;
 		//console.log("Helll Pisey "+result);
 	},
@@ -34,19 +39,22 @@ Template.comments.helpers({
 Template.reply.events({
 	"click .reply":function(e,tlp){
 		e.preventDefault();
-		var id = this.commentId;
 		
+		var reid = Session.get("GETEID");
+		console.log("text : "+Session.get("GETEID"));
 		var date = new Date();
+		var comment = this.commentId;
 		var author = Meteor.userId();
 		var text = tlp.$('.reply2').val();
-		alert("text : "+author);
+		
 		var obj = {
 			reply:{
-				authorId:author,
+				comment:comment,
+				author:author,
 				text:text,
 				date:value.date
 			}
 		}
-		Meteor.call('updatePostCom',id,obj);
+		Meteor.call('updatePostCom',reid,obj);
 	}
 });
