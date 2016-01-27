@@ -32,3 +32,6 @@ body{
     border: none;
 }
 .title{color: #000}
+.hideCom{
+  display: none;
+}

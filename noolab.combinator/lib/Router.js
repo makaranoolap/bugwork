@@ -65,3 +65,9 @@ Router.route('/admin/profileAuthor',{
         return Meteor.users.findOne({_id:Meteor.userId()});
     }
 });
+Router.route('/admin/comments/:_id', {
+    name: 'comments',
+    data: function(){
+        return post.findOne({_id: this.params._id});
+    }
+});
