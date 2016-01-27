@@ -17,7 +17,9 @@ Router.route('/login',{
 });
 
 //======================== ADMIN PAGE =============================//
-
+Router.route('/admin',{
+    name: 'dashboard'
+});
 Router.route('/admin/submit',{
     name: 'submit'
 });
@@ -30,7 +32,7 @@ Router.route('/admin/updatesubmit/:_id', {
         return product.findOne({_id: this.params._id});
     }
 });
-Router.route('/admin/manageCategory',{
+    Router.route('/admin/manageCategory',{
 	name:'manageCategory'
 });
 
@@ -46,20 +48,13 @@ Router.route('/admin/updateCategory/:_id',{
         return da;
     }
 });
-// Router.route('/admin/profileAuthor/:_id' ,{
-//     name: 'profileAuthor',
-//     data:function(){
-//         return Meteor.users.findOne({_id: this.params._id});
-//     }
-// });
-
 Router.route('/admin/editprofileAuthor',{
     name: 'editprofileAuthor',
     data: function(){
         return users.findOne({_id:Meteor.userId()});
     }
 });
-Router.route('/admin/profileAuthor',{
+Router.route('/admin/profileAuthor/:_id',{
     name: 'profileAuthor',
     data: function(){
         return users.findOne({_id:Meteor.userId()});
@@ -71,5 +66,11 @@ Router.route('/homeWeb/:website',{
         var result = post.findOne({website:this.params.website});
         console.log(this.params.website);
         return result;
+    }
+});
+Router.route('/admin/comments/:_id', {
+    name: 'comments',
+    data: function(){
+        return post.findOne({_id: this.params._id});
     }
 });

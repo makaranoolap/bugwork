@@ -1,0 +1,59 @@
+<template name="comments">
+	<div id="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+				<br>
+					<form class="form-horizontal" role="form" method="post" action="index.php">
+					    <div class="form-group">
+					        <label for="name" class="col-sm-2 control-label">Name</label>
+					        <div class="col-sm-10">
+					            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="email" class="col-sm-2 control-label">Email</label>
+					        <div class="col-sm-10">
+					            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="message" class="col-sm-2 control-label">Message</label>
+					        <div class="col-sm-10">
+					            <textarea class="form-control" id="comment" rows="4" name="message"></textarea>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-10 col-sm-offset-2">
+					            <button id="send" class="btn btn-primary send">Send</button> 
+					        </div>
+					    </div>
+					    
+					</form>
+				</div>
+				<div class="col-md-12">
+					<h1>Hlleo</h1>
+					{{#each getPostCom}}
+						{{#each comments}}
+							<div>{{text}}<br>
+								
+							</div>
+							{{> reply}}
+						{{/each}}
+					{{/each }}
+					<br><br><br><br>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</template>
+<template name="reply">
+<div class="dropdown">
+	<a href="#" class="clickHere"> Reply Here </a>
+	<div class="hideCom">
+		<input type="text" class="reply2" placeholder="reply a comment..."><a role="menuitem" tabindex="-1" href="#" class="reply">reply</a>
+	</div>
+</div>
+
+</template>
