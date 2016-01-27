@@ -17,13 +17,13 @@ Meteor.publish('advertise', function (){
 Meteor.publish('images', function (){ 
   return images.find({});
 });
-<<<<<<< HEAD
-Meteor.publish('comments', function (){ 
-  return comments.find({});
-=======
+
+// Meteor.publish('comments', function (){ 
+//   return comments.find({});
 Meteor.publish('favorite', function (){ 
   return favorite.find({});
->>>>>>> a9f27f74035a3aeae7520f63b7afc3aead181e2a
 });
-
+Meteor.publish('tracking', function (){ 
+  return tracking.find({});
+});
 

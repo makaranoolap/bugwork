@@ -25,15 +25,15 @@ images = new FS.Collection("images", {
 
 //attribute = new Mongo.Collection('attribute');
 users = Meteor.users;
-
 post = new Mongo.Collection('post');
 
 category = new Mongo.Collection('category');
 advertise = new Mongo.Collection('advertise');
-<<<<<<< HEAD
+
 comments = new Mongo.Collection('comments');
-=======
+
 favorite = new Mongo.Collection('favorite');
->>>>>>> a9f27f74035a3aeae7520f63b7afc3aead181e2a
+tracking = new Mongo.Collection('tracking');
+
 
 
