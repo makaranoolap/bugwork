@@ -1,39 +1,70 @@
 <template name="header">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="navbar-xs">
-				   <div class="navbar-primary">
-				       <nav class="navbar navbar-static-top" role="navigation">
-				          <div class="navbar-header">
-				              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8">
-				                 <span class="sr-only">Toggle navigation</span>
-				                 <span class="icon-bar"></span>
-				                 <span class="icon-bar"></span>
-				                 <span class="icon-bar"></span>
-				              </button>
-				              <a class="navbar-brand" href="/">home</a>
-				          </div>
-				          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
-			              	<ul class="nav navbar-nav">
-			                  	<li class="active"><a href="#">post</a></li>
-			                  	<li><a href="#">Link</a></li>
-			              	</ul>
-			              	<ul class="nav navbar-nav pull-right">
-			                	{{#if currentUser}}
-			                       	<li class=""><a href="/admin/profileAuthor">
-			                    		{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
-			                    	</a></li>
-			                        <li class=""><a href="#" id="logout">Logout</a></li> 
-			                    {{else}}
-			                    	<li class=""><a href="/login">LOGIN</a></li>
-			                    {{/if}}
-	                		</ul>
-				          </div>
-				      </nav>
-				  </div>
-				</div>
-			</div>
-		</div>
-	</div>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <nav role="navigation" class="navbar navbar-default">
+       <div class="navbar-header">
+         <button type="button" data-toggle="collapse" data-target="#navbar-inverse" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <a href="#" class="navbar-brand">Logo</a>
+       </div>
+       <div id="navbar-inverse" class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Dropdown <span class="caret"></span></a>
+              <ul role="menu" class="dropdown-menu">
+                 <li><a href="#">Action</a></li>
+                 <li><a href="#">Another action</a></li>
+                 <li><a href="#">Something else here</a></li>
+                 <li class="divider"></li>
+                 <li class="dropdown-header">Nav header</li>
+                 <li><a href="#">Separated link</a></li>
+                 <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+         </ul>
+       </div>
+
+       <ul class="nav navbar-nav navbar-right">
+                  {{#if currentUser}}
+                         <li class=""><a href="/admin/profileAuthor">
+                      {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
+                      </a></li>
+                         <li class=""><a href="#" id="logout">Logout</a></li> 
+                     {{else}}
+                      <li class=""><a href="/login">LOGIN</a></li>
+                     {{/if}}
+                 </ul>
+
+
+    </nav>
+    <div class="navbar-xs">
+       <div class="navbar-primary">
+           <nav class="navbar navbar-static-top" role="navigation">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/">home</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+                  <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">post</a></li>
+                      <li><a href="#">Link</a></li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
 </template>

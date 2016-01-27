@@ -9,4 +9,5 @@ Meteor.subscribe("advertise");
 Meteor.subscribe("favorite");
 Meteor.subscribe("tracking");
 Meteor.subscribe("post");
+Meteor.subscribe("roles");
 
