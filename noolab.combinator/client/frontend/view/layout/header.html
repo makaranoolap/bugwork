@@ -29,6 +29,19 @@
 					      	</li>
 					    </ul>
 				  	</div>
+
+				  	<ul class="nav navbar-nav navbar-right">
+	                	{{#if currentUser}}
+	                       	<li class=""><a href="/admin/profileAuthor">
+	                    	{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
+	                    	</a></li>
+	                        <li class=""><a href="#" id="logout">Logout</a></li> 
+	                    {{else}}
+	                    	<li class=""><a href="/login">LOGIN</a></li>
+	                    {{/if}}
+                	</ul>
+
+
 				</nav>
 			</div>
 		</div>
