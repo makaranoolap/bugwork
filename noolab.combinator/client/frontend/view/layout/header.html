@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<nav role="navigation" class="navbar navbar-default">
+				<!-- <nav role="navigation" class="navbar navbar-default">
 				  	<div class="navbar-header">
 					    <button type="button" data-toggle="collapse" data-target="#navbar-inverse" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed">
 					    <span class="sr-only">Toggle navigation</span>
@@ -29,8 +29,8 @@
 					      	</li>
 					    </ul>
 				  	</div>
-
-				  	<ul class="nav navbar-nav navbar-right">
+ -->
+				  	<!-- <ul class="nav navbar-nav navbar-right">
 	                	{{#if currentUser}}
 	                       	<li class=""><a href="/admin/profileAuthor">
 	                    	{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
@@ -39,10 +39,8 @@
 	                    {{else}}
 	                    	<li class=""><a href="/login">LOGIN</a></li>
 	                    {{/if}}
-                	</ul>
-
-
-				</nav>
+                	</ul> -->
+				<!-- </nav> -->
 				<div class="navbar-xs">
 				   <div class="navbar-primary">
 				       <nav class="navbar navbar-static-top" role="navigation">
@@ -60,6 +58,16 @@
 				                  <li class="active"><a href="#">post</a></li>
 				                  <li><a href="#">Link</a></li>
 				              </ul>
+				              <ul class="nav navbar-nav navbar-right">
+			                	{{#if currentUser}}
+			                       	<li class=""><a href="/admin/profileAuthor">
+			                    		{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
+			                    	</a></li>
+			                        <li class=""><a href="#" id="logout">Logout</a></li> 
+			                    {{else}}
+			                    	<li class=""><a href="/login">LOGIN</a></li>
+			                    {{/if}}
+                			  </ul>
 				          </div>
 				      </nav>
 				  </div>
