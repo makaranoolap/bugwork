@@ -5,28 +5,31 @@
 				<!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <tbody>
+                        <table class="table table-hover" border="0">
+                            <tbody class="list">
                             	{{#each getAllPost}}
 	                                <tr>
-	                                    <td><a href="{{url}}">{{title}}</a></td>
+	                                	<td>1.</td>
 	                                    <td>
-	                                    	<a href="#" id="like_{{_id}}" class="like addlike">Like</a>
-	                                    	<a href="#" id="unlike_{{_id}}" class="hidden addunlike"><span>unlike</span></a>
+	                                    	<a href="{{url}}" class="title">{{title}}</a>
+	                                    	<a href="#" id="web_{{_id}}" class="web subtext">  ({{website}})</a>
 	                                    </td>
-	                                    <td>
-	                                    	<a href="#" id="web_{{_id}}" class="web">{{website}}</a>
-	                                    </td>
-	                                    <td>
-	                                    	<a href="/profileAuthor/{{author}}">{{getAuthorname author}}</a>
-	                                    </td>
-	                                    <td>
-											{{getCategory}}
-										</td>
-										<td>
-											 {{livestamp date}}
-										</td>
 	                                </tr>
+	                                <tr>
+	                                	<td colspan="1"></td>
+	                                	<td class="subtext">
+	                                		<span>
+	                                			<a href="#" id="like_{{_id}}" class="like addlike">Like | </a>
+	                                    		<a href="#" id="unlike_{{_id}}" class="hidden addunlike">unlike | </a>
+	                                		</span>
+        									<span class="score" id="score">{{getFavorite}} points
+        									</span> by <a href="/admin/profileAuthor/:_id">{{getAuthorname author}} | </a> 
+        									<span class="age">
+        										<a href="#">{{livestamp date}}</a>
+        									</span>  | <span>
+        										<a href="#">comments</a></span>
+        								</td>
+        							</tr>
 	                            {{/each}}
                             </tbody>
                         </table>
